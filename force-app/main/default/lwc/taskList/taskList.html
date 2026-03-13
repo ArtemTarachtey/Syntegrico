@@ -1,0 +1,27 @@
+<template>
+    <p class="slds-text-heading_medium slds-m-bottom_small slds-text-align_center">Tasks</p>
+    <template lwc:if={tasks}>
+        <table class="slds-table slds-table_bordered slds-table_fixed-layout">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="slds-size_4-of-12">Name</th>
+                    <th class="slds-size_4-of-12">Subject</th>
+                    <th class="slds-size_1-of-12">Done</th>
+                    <th class="slds-size_2-of-12">Due Date</th>
+                    <th class="slds-size_1-of-12"></th>
+                </tr>
+            </thead>
+            <template for:each={tasks} for:item="task">
+                <tr key={task.Id}>
+                    <td>{task.Name}</td>
+                    <td>{task.Subject__c}</td>
+                    <td>{task.Done__c}</td>
+                    <td>{task.DueDate__c}</td>
+                    <td>
+                        <button onclick={handleDoneBtn} class="slds-button slds-button_neutral" data-id={task.Id}>Выполнено</button>
+                    </td>
+                </tr>
+            </template>
+        </table>
+    </template>
+</template>
