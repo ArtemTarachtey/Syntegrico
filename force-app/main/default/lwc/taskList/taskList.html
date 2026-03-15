@@ -18,7 +18,9 @@
                     <td>{task.Done__c}</td>
                     <td>{task.DueDate__c}</td>
                     <td>
-                        <button onclick={handleDoneBtn} class="slds-button slds-button_neutral" data-id={task.Id}>Выполнено</button>
+                        <template if:false={task.Done__c}>
+                            <button onclick={handleDoneBtn} class="slds-button slds-button_neutral" data-id={task.Id}>Выполнено</button>
+                        </template>
                     </td>
                 </tr>
             </template>
